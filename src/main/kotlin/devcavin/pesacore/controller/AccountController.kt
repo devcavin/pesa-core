@@ -2,8 +2,10 @@ package devcavin.pesacore.controller
 
 import devcavin.pesacore.dto.request.CreateAccountRequest
 import devcavin.pesacore.dto.request.TransactionRequest
+import devcavin.pesacore.dto.request.TransferRequest
 import devcavin.pesacore.dto.response.AccountResponse
 import devcavin.pesacore.dto.response.TransactionResponse
+import devcavin.pesacore.dto.response.TransferResponse
 import devcavin.pesacore.service.AccountService
 import devcavin.pesacore.service.TransactionService
 import jakarta.validation.Valid
@@ -55,5 +57,11 @@ class AccountController(
     fun withdraw(@PathVariable accountId: UUID, @Valid @RequestBody request: TransactionRequest):
             ResponseEntity<TransactionResponse> {
         return ResponseEntity.status(HttpStatus.OK).body(transactionService.withdraw(accountId, request))
+    }
+
+    @PostMapping("/{senderAccountId}/transactions/transfer")
+    fun transfer(@PathVariable senderAccountId: UUID, @Valid @RequestBody request: TransferRequest):
+            ResponseEntity<TransferResponse> {
+        return ResponseEntity.status(HttpStatus.OK).body(transactionService.transfer(senderAccountId, request))
     }
 }
