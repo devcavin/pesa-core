@@ -55,6 +55,13 @@ cd pesacore
 ./gradlew bootRun # Linux/MacOS
 gradlew bootRun # Windows(Powershell/CMD)
 
+# run compose
+docker-compose up --build
+docker-compose up
+
+podman-compose up --build
+podman-compose up
+
 # Build Docker image
 docker build -t pesacore:latest . # docker build --network=host -t pesacore . # for networking issues
 
