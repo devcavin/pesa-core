@@ -2,7 +2,7 @@ spring:
   application:
     name: pesa-core
   datasource:
-    url: "jdbc:postgresql://localhost:5432/pesacoredb"
+    url: "jdbc:postgresql://${DB_HOST:localhost}:5432/pesacoredb"
     username: "postgres"
     password: "secret"
   jpa:

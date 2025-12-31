@@ -1,11 +1,28 @@
-version: '3.8'
 services:
   postgres:
-    image: 'postgres:15-alpine'
-    container_name: 'pesa-core'
+    image: 'docker.io/postgres:15-alpine'
+    container_name: 'pesacore-db'
     environment:
       - 'POSTGRES_DB=pesacoredb'
       - 'POSTGRES_USER=postgres'
       - 'POSTGRES_PASSWORD=secret'
     ports:
-      - '5432'
+      - '5432:5432'
+    networks:
+      - pesanet
+  app:
+    image: pesacore:latest
+    pull_policy: never
+    container_name: 'pesacore-app'
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - SPRING_DATASOURCE_PASSWORD=secret
+    ports:
+      - '8080:8080'
+    networks:
+      - pesanet
+
+networks:
+  pesanet:

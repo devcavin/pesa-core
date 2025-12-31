@@ -1,0 +1,15 @@
+name: pesa core workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.0.0
+
+      - name: Print a message
+        run: echo "This is a placeholder workflow"
