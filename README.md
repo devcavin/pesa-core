@@ -22,18 +22,18 @@ A robust, transactional Fintech backend built with **Kotlin** and **Spring Boot*
 
 ### Accounts
 
-| Method | Endpoint | Description |
-|------|---------|-------------|
-| POST | /api/v1/accounts | Create a new account |
-| GET | /api/v1/accounts/{id} | Get account details |
+| Method | Endpoint              | Description          |
+|--------|-----------------------|----------------------|
+| POST   | /api/v1/accounts      | Create a new account |
+| GET    | /api/v1/accounts/{id} | Get account details  |
 
 ### Transactions
 
-| Method | Endpoint | Description |
-|------|---------|-------------|
-| POST | /.../deposit | Deposit funds |
-| POST | /.../withdraw | Withdraw funds |
-| POST | /.../transfer | P2P Transfer |
+| Method | Endpoint      | Description    |
+|--------|---------------|----------------|
+| POST   | /.../deposit  | Deposit funds  |
+| POST   | /.../withdraw | Withdraw funds |
+| POST   | /.../transfer | P2P Transfer   |
 
 ## Known Limitations & Roadmap
 
@@ -56,11 +56,11 @@ cd pesacore
 gradlew bootRun # Windows(Powershell/CMD)
 
 # run compose
-docker-compose up --build
-docker-compose up
+docker compose up --build
+docker compose up
 
-podman-compose up --build
-podman-compose up
+podman compose up --build
+podman compose up
 
 # Build Docker image
 docker build -t pesacore:latest . # docker build --network=host -t pesacore . # for networking issues
